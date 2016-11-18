@@ -175,7 +175,6 @@ class MainWindow : public QMainWindow, public MessageHandler, public Ui::MainWin
 		bool handleSpecialContextMenu(const QUrl &url, const QPoint &pos_, bool focus = false);
 		Channel* getContextMenuChannel();
 		ClientUser* getContextMenuUser();
-		void onGpioPoll();
 	
 	public slots:
 		void on_qmServer_aboutToShow();
@@ -288,6 +287,7 @@ class MainWindow : public QMainWindow, public MessageHandler, public Ui::MainWin
 		/// Updates the user's image directory to the given path (any included
 		/// filename is discarded).
 		void updateImagePath(QString filepath) const;
+		void onGpioPoll();
 
 	public:
 		MainWindow(QWidget *parent);
