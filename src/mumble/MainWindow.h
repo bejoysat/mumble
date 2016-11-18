@@ -175,7 +175,8 @@ class MainWindow : public QMainWindow, public MessageHandler, public Ui::MainWin
 		bool handleSpecialContextMenu(const QUrl &url, const QPoint &pos_, bool focus = false);
 		Channel* getContextMenuChannel();
 		ClientUser* getContextMenuUser();
-
+		void onGpioPoll();
+	
 	public slots:
 		void on_qmServer_aboutToShow();
 		void on_qaServerConnect_triggered(bool autoconnect = false);
