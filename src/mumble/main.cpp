@@ -35,6 +35,7 @@
 #include "ApplicationPalette.h"
 #include "Themes.h"
 #include "UserLockFile.h"
+#include <wiringPi.h>
 
 #if defined(USE_STATIC_QT_PLUGINS) && QT_VERSION < 0x050000
 Q_IMPORT_PLUGIN(qtaccessiblewidgets)
@@ -73,7 +74,12 @@ int main(int argc, char **argv) {
 	setenv("AVAHI_COMPAT_NOWARN", "1", 1);
 #endif
 #endif
-
+// Raspi GPIO setup for PTT  <<START
+wiringPiSetupSys();
+pinMode(10,OUTPUT);
+pinMode(25,INPUT);
+// Raspi GPIO setup for PTT  <<END
+	
 	// Initialize application object.
 	MumbleApplication a(argc, argv);
 	a.setApplicationName(QLatin1String("Mumble"));
